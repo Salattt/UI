@@ -18,12 +18,12 @@ public class HPBar : MonoBehaviour
         _slider = GetComponent<Slider>();
     }
 
-    public void ChangeValue(float targetValue)
+    public void OnHealthChanged(float newHealth)
     {
         if(_hpBarAnimation != null)
             StopCoroutine(_hpBarAnimation);
 
-        _hpBarAnimation = StartCoroutine(AnimateHpBar(targetValue));
+        _hpBarAnimation = StartCoroutine(AnimateHpBar(newHealth));
     }
 
     private IEnumerator AnimateHpBar(float targetValue)
