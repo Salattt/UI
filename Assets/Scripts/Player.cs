@@ -25,13 +25,7 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        _health -= damage;
-
-        if(_health < _minHealth)
-            _health = _minHealth;
-
-        if (_health > _maxHealth)
-            _health = _maxHealth;
+        _health = Mathf.Clamp((_health - damage), _minHealth, _maxHealth);
 
         HealthChanched.Invoke(_health/ _maxHealth);
     }
